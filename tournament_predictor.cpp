@@ -62,6 +62,8 @@ public:
 
 	void update (branch_update *u, bool taken, unsigned int target) {
 		if (bi.br_flags & BR_CONDITIONAL) {
+			
+			// Update results for gshare table
 			unsigned char *c = &gshare_tab[((my_update*)u)->gshare_index];
 			if (taken) {
 				if (*c < 3) { 
@@ -76,6 +78,7 @@ public:
 			history |= taken;
 			history &= (1<<HISTORY_LENGTH) - 1;
 
+			// Update results for local table
 			c = &local_tab[((my_update*)u)->local_index];
 			if (taken) {
 				if (*c < 3) { 
@@ -87,6 +90,7 @@ public:
 				}
 			}
 
+			// Update the prediction decider 
 			if(taken != (bool)local_pred && taken == (bool)gshare_pred){
 				if(pred_decider < 3){
 					pred_decider++;
