@@ -1,6 +1,9 @@
 /*
+* COEN 313 Branch Predictor Project
+* Task 3
+*
 * (1,2) Correlating Branch Predictor
-* 32 entries for branch address
+* 32-entry Branch History Table (BHT)
 *
 */
 
