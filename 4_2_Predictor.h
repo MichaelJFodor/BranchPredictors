@@ -1,5 +1,5 @@
 /*
-* (1,2) Correlating Branch Predictor
+* (4,2) Correlating Branch Predictor
 * 32 entries for branch address
 *
 */
